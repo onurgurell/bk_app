@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/helper/text_helper.dart';
 import '../../../../core/model/user_model.dart';
+import '../../../../core/utils/constants/app_strings_constans.dart';
 import '../../detail_page/view/detail_page_view.dart';
 
 class DetailButton extends StatelessWidget {
@@ -22,5 +22,5 @@ class DetailButton extends StatelessWidget {
     );
   }
 
-  Text _buttonName() => const Text(StringConstant.detailButton);
+  Text _buttonName() => const Text(AppStringConstants.detailButton);
 }

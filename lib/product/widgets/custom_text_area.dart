@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/utils/constants/app_strings_constans.dart';
+
 class CustomTextArea extends StatelessWidget {
   final String name;
   final String surName;
@@ -15,28 +17,23 @@ class CustomTextArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width * .8,
       child: Column(
         children: [
-          Text(
-            'name: $name',
-            style: TextStyle(fontSize: 17),
-          ),
-          Text(
-            'surName: $surName',
-            style: TextStyle(fontSize: 17),
-          ),
-          Text(
-            'email: $email',
-            style: TextStyle(fontSize: 17),
-          ),
-          Text(
-            'number: $number',
-            style: TextStyle(fontSize: 17),
-          ),
+          getText(AppStringConstants.name, name),
+          getText(AppStringConstants.surName, surName),
+          getText(AppStringConstants.email, email),
+          getText(AppStringConstants.number, number),
         ],
       ),
+    );
+  }
+
+  Widget getText(String title, String val) {
+    return Text(
+      '$title: $val',
+      style: const TextStyle(fontSize: 17),
     );
   }
 }

@@ -1,4 +1,3 @@
-import 'package:bk_app/core/model/user_model.dart';
 import 'package:bk_app/feature/screen/home_page/view_model/home_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,9 +18,9 @@ class MyApp extends StatelessWidget {
       create: (context) => HomeViewModel(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'BKMobile',
         theme: ThemeData(
-          primarySwatch: Colors.red,
+          primarySwatch: Colors.blue,
         ),
         home: const HomePageView(),
       ),

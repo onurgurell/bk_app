@@ -3,20 +3,31 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/model/user_model.dart';
 
+enum UserDataEnum { Loading, Error, Idle }
+
 class HomeViewModel extends ChangeNotifier {
+  HomeViewModel() {
+    getUserData();
+  }
+
   final UserService _userService = UserService();
 
-  List<UserModel> _user = [];
-  List<UserModel> get user => _user;
+  List<UserModel> _users = [];
+  List<UserModel> get users => _users;
 
-  var _loading = false;
-  bool get loading => _loading;
+  UserDataEnum userDataEnum = UserDataEnum.Idle;
 
   getUserData() async {
-    _loading = true;
+    userDataEnum = UserDataEnum.Loading;
     notifyListeners();
-    _user = await _userService.getUsers();
-    _loading = false;
-    notifyListeners();
+    try {
+      _users = await _userService.getUsers();
+      userDataEnum = UserDataEnum.Idle;
+      notifyListeners();
+    } catch (e) {
+      userDataEnum = UserDataEnum.Error;
+      notifyListeners();
+      print("HomeViewModel/getUserData $e");
+    }
   }
 }

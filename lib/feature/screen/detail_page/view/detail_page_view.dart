@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/helper/text_helper.dart';
 import '../../../../core/model/user_model.dart';
+import '../../../../core/utils/constants/app_strings_constans.dart';
 
 class DetailPageView extends StatelessWidget {
   UserModel userModel;
@@ -31,9 +32,9 @@ class DetailPageView extends StatelessWidget {
 
   Container _detailUserInfo() {
     return Container(
-      padding: EdgeInsets.all(12),
-      child: Text(
-        StringConstant.userDetailInfo,
+      padding: const EdgeInsets.all(12),
+      child: const Text(
+        AppStringConstants.userDetailInfo,
         textAlign: TextAlign.start,
       ),
     );
@@ -45,7 +46,7 @@ class DetailPageView extends StatelessWidget {
 
   CircleAvatar _detailCircleAvatar() {
     return CircleAvatar(
-      backgroundImage: NetworkImage('${userModel.avatar}'),
+      backgroundImage: NetworkImage(userModel.avatar),
       radius: 75,
     );
   }
