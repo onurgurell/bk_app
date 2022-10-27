@@ -5,14 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../widgets/loading_widget.dart';
 
-class UserInfoCard extends StatefulWidget {
+class UserInfoCard extends StatelessWidget {
   const UserInfoCard({super.key});
 
-  @override
-  State<UserInfoCard> createState() => _UserInfoCardState();
-}
-
-class _UserInfoCardState extends State<UserInfoCard> {
   @override
   Widget build(BuildContext context) {
     return Consumer<HomeViewModel>(
